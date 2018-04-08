@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<events_list>
+
+<event>
+<name>Protagonist</name>
+<description>It's an acting event</description>
+<date>23th FEB</date>
+<venue>MAIT(1st floor, 9th block)</venue>
+</event>
+
+<event>
+<name>Ballet Queen</name>
+<description>It's a dancing event</description>
+<date>23th FEB</date>
+<venue>MAIT(mini audi)</venue>
+</event>
+
+<event>
+<name>Next Picasso</name>
+<description>It's a artistic event</description>
+<date>24th FEB</date>
+<venue>MAIT(basement , 9th block)</venue>
+</event>
+
+<event>
+<name>Codmatrix</name>
+<description>It's an prograaming event</description>
+<date>24th FEB</date>
+<venue>MAIT(computer's lab , 1st block)</venue>
+</event>
+
+</events_list>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main;}
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  grid-gap:2px;
+  background-color: #232020;
+  padding: 2px;
+}
+.grid-container >div {
+  background-image:linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  text-align: center;
+  padding: 10px;
+}
+.item3{text-align: left!important;}
+.item1{font-size: 30px;}
+.item2{font-size:20px;}
+img {border-radius: 5%;}
+a{
+    text-decoration:none;
+    color:white;
+}
+a:hover{color:#C6BDBD;}
+.link{margin-left:150px;}
+.input{
+    margin-left: 175px;
+    border-radius: 12px; 
+    background:transparent;
+    color: black;
+    border: 2px solid white;
+    padding:10px;}
+.input:hover{
+    background:black;
+    color:white;
+    border: 2px solid white;
+}
+#demo,#time{
+  color: #B6FF00;
+  font-family: PressStart;
+  font-size: 1em;
+}
+#demo:hover,#time:hover{
+  -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon4 1.5s ease-in-out infinite alternate;
+  animation: neon4 1.5s ease-in-out infinite alternate;
+}
+@-webkit-keyframes neon4 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #B6FF00, 0 0 70px #B6FF00, 0 0 80px #B6FF00, 0 0 100px #B6FF00, 0 0 150px #B6FF00;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #B6FF00, 0 0 35px #B6FF00, 0 0 40px #B6FF00, 0 0 50px #B6FF00, 0 0 75px #B6FF00;
+  }
+}
+</style>
+</head>
+<body>
+<div class="grid-container">
+  <div class="item1">COLLEGE  FEST  MANAGER<span style="float: right;" id="time"></span></div>
+  <div class="item2" style="width:350px">
+      <h2> Welcome Users !</h2>
+      <p>If you are a student <a href="student.html" > register here</a></p>
+      <p> If you are an event manager <a href="eventm.html"> register here</a></p>
+      <p style="margin-top:190px">Time Left</p>
+      <p id="demo"></p>
+  </div>
+  <div class="item3" style="width:450px"> 
+      <p class="p">All of the young and happening college-students are hereby invited to participate in the ongoing <b><i>TECH FEST 2018</i></b>conducted for students who are pursuing their (post) graduation 
+      in and around <b>DELHI</b> so up your tech quotient NOW!!</p>
+      <p>In college, it is very important to socialize and to meet the right people.And there's no better place for this than a college fest.</p>
+      <ol>
+          <li>You deserve a break from your studies</li>
+          <li>Fest push you to socialize with people and not be crammed up in your room all day</li>
+          <li>You get to try a variety of activities</li>
+          <li>You discover some hidden talents</li>
+          <li>You might figure out just where your heart lies, or you might take up a fun hobby</li>
+      </ol>
+       <form action="events.html">
+       <input  type="submit" value="Enter The Fest" name="submit"  class="input"  onclick="events.html"/> <br><br><br>
+       </form>
+       <a href="eventcheck.jsp" class="link"> CHECK EVENTS HERE </a>
+  </div>
+  <div class="item4">
+    <img style="width:300px" src="images/52980719.jpg" class="img2"/> 
+    <img style="width:300px" src="images/blog6.png" class="img3"/>
+  </div>
+  <div class="item5">Created by: Vishnu Bajpai</div>
+</div>
+<script>
+ function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;}return i;}
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  // add a zero in front of numbers<10
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+  t = setTimeout(function() {
+    startTime()
+  }, 500);
+}
+startTime();
+var countDownDate = new Date("June 5, 2018 8:37:25").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";}}, 1000);
+
+</script>
+</body>
+</html>
+

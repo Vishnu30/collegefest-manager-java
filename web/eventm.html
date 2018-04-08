@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>EVENT MANAGER REGISTRATION</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+          div{
+                background-image: url("images/pattern6.jpg"); 
+                position:absolute;
+                top:20%;
+                left:30%;
+                margin-top:-50px; 
+                margin-left:-100px;
+                padding-left:200px;
+                width:500px;
+                padding-bottom:20px; 
+            }     
+            .n1{
+                margin-left: 40px;
+            }
+            .n2{
+                margin-left: 45px;
+            }
+            .n3{
+                margin-left: 30px;
+            }
+            .n4{
+                margin-left: 70px;
+            }
+            .n5{
+                margin-left: 38px;
+            }
+            .n7{
+                margin-left: 100px;
+            }
+            </style>
+    </head>
+    <body>
+            <div>
+            <form name="myForm" action="eventm.jsp" method="post" onsubmit="return validateForm()">
+                <p>Username:<input type="text" name="user" required="required" class="n1"/></p>
+                <p>Password:<input type="password" name="pass" required="required" class="n2"/></p>
+                <p>designation:   
+                    <select name="designation" class="n3">
+                        <option value="HOD">HOD</option>
+                        <option value="TEACHER">TEACHER</option>
+                        <option value="STUDENT">STUDENT</option>
+                     </select>           
+                </p>
+                <p>Event:<input type="text" name="coll" required="required" class="n4"/></p>
+                <p>BRANCH: <input type="text" name="branch"  class="n5"/></p>
+                
+                <input type="submit" value="SUBMIT" name="submit" class="n7"/>
+            </form>
+            </div>
+        <script>
+            function validateForm(){  
+            var password=document.forms["myForm"]["pass"].value;  
+            var minNumberofChars = 6;
+            var maxNumberofChars = 16;
+            var filter1 = /[a-zA-Z]/g;
+            var filter2 = /[@$,<>#:?_*&;]/g;
+            var filter3 = /[0-9]/g;;
+
+            if(password.length < minNumberofChars || password.length > maxNumberofChars){  
+              alert("Password must not be smaller than 6 characters and greater than 16 characters");  
+              return false;  
+              } 
+            else if(!password.test(filter1)||!password.test(filter2)||!password.test(filter3)) {
+                alert("password should contain atleast one number and one special character");
+                return false;
+            }
+            }  
+        </script>
+        </body>
+</html>

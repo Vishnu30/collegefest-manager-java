@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>STUDENT REGISTRATION</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            div{
+                background-image: url("images/pattern1.jpg"); 
+                position:absolute;
+                top:20%;
+                left:30%;
+                margin-top:-50px; 
+                margin-left:-100px;
+                padding-left:200px;
+                width:500px;
+                padding-bottom:20px; 
+            }     
+            .n1{
+                margin-left: 30px;
+            }
+            .n2{
+                margin-left: 35px;
+            }
+            .n3{
+                margin-left: 45px;
+            }
+            .n4{
+                margin-left: 50px;
+            }
+            .n5{
+                margin-left: 25px;
+            }
+            .n6{
+                margin-left: 40px;
+            }
+            .n7{
+                margin-left: 100px;
+            }
+            .n8{
+                margin-left:8px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form name="myForm" action="student.jsp" method="post" onsubmit="return validateForm()" >
+                <p>Username:<input type="text" name="user" required="required" class="n1"/></p>
+                <p>Password:<input type="password" name="pass" required="required" class="n2"/></p>
+                <p>Student name:    <input type="text" name="name" required="required" class="n8"></p>
+                <p>College:         <input type="text" name="coll" required="required" class="n3"/></p>
+                <p>Branch:          <input type="text" name="branch"  class="n4"/></p>
+                <P>Contact no:      <input type="text" name="contact" required="required" class="n5"/></p>
+                <p>EmailID:         <input type="text" name="email" required="required" class="n6"/></p>
+                <p>Are you a volunteer?<input type="radio" name="genre"/>yes<input type="radio" name="genre"/>no</p>
+                <input type="submit" value="SUBMIT" name="submit" class="n7"/>
+            </form>
+        </div>
+        <script>  
+            function validateForm(){  
+            var password=document.forms["myForm"]["pass"].value;  
+            var email=document.forms["myForm"]["email"].value;
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var minNumberofChars = 6;
+            var maxNumberofChars = 16;
+            var filter1 = /[a-zA-Z]/g;
+            var filter2 = /[@$,<>#:?_*&;]/g;
+            var filter3 = /[0-9]/g;;
+
+            if(password.length < minNumberofChars || password.length > maxNumberofChars){  
+              alert("Password must not be smaller than 6 characters and greater than 16 characters");  
+              return false;  
+              } 
+            else if(!password.test(filter1)||!password.test(filter2)||!password.test(filter3)) {
+                alert("password should contain atleast one number and one special character");
+                return false;
+            }
+            else if (!email.match(filter1)|!email.match(filter2)||!email.match(filter3)){
+                alert("valid email address reuquired")
+                return false;
+            }}  
+        </script>  
+    </body>
+</html>
